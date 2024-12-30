@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Itim&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <style>
+
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body{
+            font-family: "Poppins", serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #0054A5, #003E7A);
+            height: 100vh;
+        }
+
+        .card{
+            background: #FFFFFF;
+            width: 73%;
+            max-width: 1050px;
+            min-width: 1050px;
+            height: 50%;
+            max-height: 462px;
+            display: flex;
+            flex-direction: row;
+            border-radius: 20px;
+        }
+
+        .logoBNCC{
+            width: 364px;
+            height: 162px;
+            margin: 150px 168px 150px 110px;
+        }
+
+        p{
+            color: #666666;
+        }
+
+        label{
+            font-size: 14px;
+            color: #666666;
+        }
+
+        li{
+            color: #666666;
+        }
+        .input-box{
+            width: 320px;
+            height: 415px;
+            margin: 31px 88px 16px 0px;
+        }
+        .group-wrapper{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .group-wrapper > label{
+            margin-bottom: 8px;
+        }
+
+        .group-wrapper > input {
+            width: 100%;
+            height: auto;
+            max-height: 40px;
+            padding: 8px 12px;
+            /* padding-right: 36px; */
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+        }
+
+        input::placeholder{
+            font-size: 16px;
+        }
+
+        .password-wrapper{
+            display: flex;
+            flex-direction: column;
+            margin-top: 18px;
+            position: relative;
+        }
+
+        .password-wrapper > label{
+            margin-bottom: 8px;
+        }
+        
+        .password-wrapper > .input-password-wrapper{
+            position: relative;
+            width: 100%;
+        }
+
+        .password-wrapper > .input-password-wrapper > input {
+            width: 100%;
+            height: auto;
+            max-height: 40px;
+            padding: 8px 12px 8px 12px;
+            /* padding-right: 40px; */
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+        }
+
+        .password-wrapper > .input-password-wrapper > .toggle-password{
+            position: absolute;
+            top: 50%; 
+            right: 14px; 
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .password-wrapper > .input-password-wrapper > .toggleEye{
+            width: 20px;
+            height: 14px;
+        }
+
+        .requirement ul{
+            margin: 0;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .requirement li {
+            position: relative;
+            padding-left: 8px;
+        }
+
+        .requirement .bullet{
+            color: #B20110;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .confirm-wrapper{
+            display: flex;
+            flex-direction: column;
+            margin-top: 8px;
+            position: relative;
+        }
+
+        .confirm-wrapper > label{
+            margin-bottom: 4px;
+        }
+
+        .confirm-wrapper > .input-confirm-wrapper{
+            position: relative;
+            width: 100%;
+        }
+
+        .confirm-wrapper > .input-confirm-wrapper > input{
+            width: 100%;
+            height: auto;
+            max-height: 40px;
+            padding: 8px 12px 8px 12px;
+            /* padding-right: 40px; */
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+        }
+
+        .confirm-wrapper > .input-confirm-wrapper > .toggle-password{
+            position: absolute;
+            top: 50%; 
+            right: 14px; 
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 2;  
+        }
+
+        .confirm-wrapper > ,.input-confirm-wrapper > .toggleEye{
+            width: 20px;
+            height: 14px;
+        }
+
+        .statusBinusian {
+            display: flex;
+            align-items: center;
+            margin-left: 7px;
+        }
+
+        .statusBinusian input[type="radio"] {
+            position: absolute;
+            opacity: 0;
+        }
+
+        .statusBinusian  label {
+            position: relative;
+            display: inline-block;
+            padding: 8px 12px;
+            font-size: 10px; 
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 9px;
+            margin-right: 9px;
+        }
+
+        .statusBinusian label:before {
+            content: '';
+            position: absolute;
+            left: -7px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 13px;
+            height: 10px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background-color: white;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .statusBinusian input[type="radio"]:checked + label:before {
+            background-color: #0054A5;
+            border-color: #0054A5;
+        }
+
+        .register-button{
+            width: 100%;
+            height: 44px;
+            padding: 10px;
+            background-color: #0054A5;
+            color: #FFFFFF;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .input-error {
+            border-color: #B20110 !important;
+        }
+
+        .error-message {
+            position: absolute;
+            top: 100%;
+            font-size: 10px;
+            color: #B20110;
+            margin: 0px;
+            white-space: nowrap;
+        }
+
+        .requirement-invalid {
+            color: #B20110 !important;
+        }
+
+        .error-radio-label{
+            color: #B20110;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="body">
+        <div class="card">
+            <img class="logoBNCC" src="./assets/bncc-logo.png" alt="Logo BNCC">
+            <div class="input-box">
+                <form class="input-form">
+                    <div class="group-wrapper">
+                        <label for="groupName">Group Name</label>
+                        <input type="text" id="groupName" name="groupName" placeholder="group name">
+                        <div class="requirement">
+                            <!-- <p>Nama tidak boleh kosong</p> -->
+                        </div>
+                    </div>
+
+                    <div class="password-wrapper">
+                        <label for="groupPassword">Password</label>
+                        <div class="input-password-wrapper">
+                            <input type="password" id="groupPassword" name="groupPassword" placeholder="password">
+                            <span class="toggle-password" id="togglePassword1">
+                                <img class="toggleEye" src="./assets/eye.png" alt="Toggle Button">
+                            </span>
+                        </div>
+                        <div class="requirement">
+                            <ul>
+                                <li><span class="bullet">* </span>Minimal Panjang 8</li>
+                                <li><span class="bullet">* </span>Harus ada Huruf Besar</li>
+                                <li><span class="bullet">* </span>Harus ada Huruf Kecil</li>
+                                <li><span class="bullet">* </span>Harus ada Angka</li>
+                                <li><span class="bullet">* </span>Harus ada Tanda</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="confirm-wrapper">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <div class="input-confirm-wrapper">
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="password">
+                            <span class="toggle-password" id="togglePassword2">
+                                <img class="toggleEye" src="./assets/eye.png" alt="Toggle Button">
+                            </span>
+                        </div>
+                        <!-- <div class="requirement">
+                            <p>Harus sama persis dengan Password</p>
+                        </div> -->
+                    </div>
+
+                    <div class="statusBinusian">
+                        <div class="radio-wrapper">
+                        <input type="radio" id="binusian" name="status" value="binusian">
+                        <label for="binusian">Binusian</label>
+
+                        <input type="radio" id="non-binusian" name="status" value="non-binusian">
+                        <label for="non-binusian">Non-Binusian</label>
+                        </div>
+                    </div>
+
+                    <button class="register-button" type="submit">Register</button>
+                
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+
+        // Ambil elemen-elemen form dan input
+        const form = document.querySelector('.input-form');
+        const groupNameInput = document.getElementById('groupName');
+        const passwordInput = document.getElementById('groupPassword');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const passwordRequirements = document.querySelector('.password-wrapper .requirement ul');
+
+        // Aturan validasi password
+        const requirements = {
+            length: /^(?=.{8,})/,       // Minimal panjang 8
+            uppercase: /^(?=.*[A-Z])/,  // Harus ada huruf besar
+            lowercase: /^(?=.*[a-z])/,  // Harus ada huruf kecil
+            number: /^(?=.*\d)/,        // Harus ada angka
+            special: /^(?=.*[-_.@$!%*?&])/, // Harus ada karakter spesial
+        };
+
+        // Fungsi untuk memvalidasi password
+        function validatePassword(password) {
+            return (
+                requirements.length.test(password) &&
+                requirements.uppercase.test(password) &&
+                requirements.lowercase.test(password) &&
+                requirements.number.test(password) &&
+                requirements.special.test(password)
+            );
+        }
+
+        // Fungsi untuk menampilkan error message
+        function showError(inputElement, message) {
+            inputElement.classList.add('input-error');
+
+            // Cek apakah error message sudah ada
+            if (!inputElement.nextElementSibling || !inputElement.nextElementSibling.classList.contains('error-message')) {
+                const error = document.createElement('p');
+                error.className = 'error-message';
+                error.textContent = message;
+                inputElement.parentElement.appendChild(error);
+            }
+        }
+
+        function updatePasswordRequirements(isValid) {
+            const requirementItems = document.querySelectorAll('.password-wrapper .requirement ul li');
+            requirementItems.forEach(item => {
+                if (!isValid) {
+                    item.classList.add('requirement-invalid');
+                } else {
+                    item.classList.remove('requirement-invalid');
+                }
+            });
+        }
+
+        // Fungsi untuk menghapus error message
+        function clearError(inputElement) {
+            inputElement.classList.remove('input-error');
+
+            // Hapus error message jika ada
+            if (inputElement.nextElementSibling && inputElement.nextElementSibling.classList.contains('error-message')) {
+                inputElement.parentElement.removeChild(inputElement.nextElementSibling);
+            }
+        }
+
+        function showRadioError() {
+            const radioLabels = document.querySelectorAll('.radio-wrapper label');
+            
+            // Tambahkan kelas error pada label jika tidak ada radio yang dipilih
+            radioLabels.forEach(label => {
+                label.classList.add('error-radio-label');
+            });
+        }
+
+
+        function clearRadioError() {
+            const radioLabels = document.querySelectorAll('.radio-wrapper label');
+            
+            // Hapus kelas error dari label jika radio button dipilih
+            radioLabels.forEach(label => {
+                label.classList.remove('error-radio-label');
+            });
+        }
+
+        // Event listener untuk validasi form
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Mencegah submit form default
+            let isValid = true;
+
+            // Validasi nama grup
+            if (groupNameInput.value.trim() === '') {
+                isValid = false;
+                showError(groupNameInput, 'Nama grup tidak boleh kosong');
+            } else {
+                clearError(groupNameInput);
+            }
+
+            // Validasi password
+            if (!validatePassword(passwordInput.value)) {
+                isValid = false;
+                passwordInput.classList.add('input-error');
+                
+                // Update li untuk menampilkan teks merah
+                updatePasswordRequirements(false);
+            } else {
+                passwordInput.classList.remove('input-error');
+                
+                // Update li untuk menghapus teks merah jika valid
+                updatePasswordRequirements(true);
+            }
+
+            // Validasi konfirmasi password
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                isValid = false;
+                showError(confirmPasswordInput, 'Harus sama persis dengan Password');
+            } else {
+                clearError(confirmPasswordInput);
+            }
+
+            const radioButtons = document.querySelectorAll('input[name="status"]');
+            let isRadioSelected = false;
+            radioButtons.forEach(radio => {
+                if (radio.checked) {
+                    isRadioSelected = true;
+                }
+            });
+
+            if (!isRadioSelected) {
+                isValid = false;
+                showRadioError(); // Menampilkan error pada radio button
+            } else {
+                clearRadioError(); // Menghapus error pada radio button jika dipilih
+            }
+
+            // Jika semua validasi lolos, submit form
+            if (isValid) {
+                alert('Registrasi berhasil!');
+                form.submit();
+            }
+        });
+
+        document.getElementById("togglePassword1").addEventListener("click", function () {
+            var passwordField = document.getElementById("groupPassword");
+            var type = passwordField.type === "password" ? "text" : "password"; // Toggle tipe password
+            passwordField.type = type;
+
+            var eyeIcon = this.querySelector("img");
+            if (type === "password") {
+                eyeIcon.src = "./assets/eye.png"; // Ganti dengan gambar mata tertutup
+            } else {
+                eyeIcon.src = "./assets/eye-open.png"; // Ganti dengan gambar mata terbuka
+            }
+        });
+
+        document.getElementById("togglePassword2").addEventListener("click", function () {
+            var confirmPasswordField = document.getElementById("confirmPassword");
+            var type = confirmPasswordField.type === "password" ? "text" : "password"; // Toggle tipe password
+            confirmPasswordField.type = type;
+
+            var eyeIcon = this.querySelector("img");
+            if (type === "password") {
+                eyeIcon.src = "./assets/eye.png"; // Ganti dengan gambar mata tertutup
+            } else {
+                eyeIcon.src = "./assets/eye-open.png"; // Ganti dengan gambar mata terbuka
+            }
+        });
+    </script>
+</body>
+</html>
