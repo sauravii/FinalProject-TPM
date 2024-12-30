@@ -1,0 +1,29 @@
+:root {
+  /* tipografi */
+  --font-family: "Poppins";
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --heading-font-size: 50px;
+  --section-font-size: 36px;
+  --desc-very-big: 20px;
+  --desc-big: 18px;
+  --desc-medium: 16px;
+  --desc-small: 14px;
+  --desc-tiny: 12px;
+
+  /* color */
+  --color-primary: #0054a5;
+  --color-error: #b20110;
+  --color-pink: #fdedee;
+  --color-white: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
