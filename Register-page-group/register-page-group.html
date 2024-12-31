@@ -330,8 +330,7 @@
         const passwordInput = document.getElementById('groupPassword');
         const confirmPasswordInput = document.getElementById('confirmPassword');
         const passwordRequirements = document.querySelector('.password-wrapper .requirement ul');
-
-        // Aturan validasi password
+        
         const requirements = {
             length: /^(?=.{8,})/,       // Minimal panjang 8
             uppercase: /^(?=.*[A-Z])/,  // Harus ada huruf besar
@@ -351,11 +350,11 @@
             );
         }
 
-        // Fungsi untuk menampilkan error message
+    
         function showError(inputElement, message) {
             inputElement.classList.add('input-error');
 
-            // Cek apakah error message sudah ada
+            
             if (!inputElement.nextElementSibling || !inputElement.nextElementSibling.classList.contains('error-message')) {
                 const error = document.createElement('p');
                 error.className = 'error-message';
@@ -375,7 +374,7 @@
             });
         }
 
-        // Fungsi untuk menghapus error message
+        
         function clearError(inputElement) {
             inputElement.classList.remove('input-error');
 
@@ -388,7 +387,7 @@
         function showRadioError() {
             const radioLabels = document.querySelectorAll('.radio-wrapper label');
             
-            // Tambahkan kelas error pada label jika tidak ada radio yang dipilih
+            
             radioLabels.forEach(label => {
                 label.classList.add('error-radio-label');
             });
@@ -398,13 +397,13 @@
         function clearRadioError() {
             const radioLabels = document.querySelectorAll('.radio-wrapper label');
             
-            // Hapus kelas error dari label jika radio button dipilih
+           
             radioLabels.forEach(label => {
                 label.classList.remove('error-radio-label');
             });
         }
 
-        // Event listener untuk validasi form
+       
         form.addEventListener('submit', function (event) {
             event.preventDefault(); // Mencegah submit form default
             let isValid = true;
@@ -422,12 +421,12 @@
                 isValid = false;
                 passwordInput.classList.add('input-error');
                 
-                // Update li untuk menampilkan teks merah
+                
                 updatePasswordRequirements(false);
             } else {
                 passwordInput.classList.remove('input-error');
                 
-                // Update li untuk menghapus teks merah jika valid
+
                 updatePasswordRequirements(true);
             }
 
@@ -449,12 +448,12 @@
 
             if (!isRadioSelected) {
                 isValid = false;
-                showRadioError(); // Menampilkan error pada radio button
+                showRadioError(); 
             } else {
-                clearRadioError(); // Menghapus error pada radio button jika dipilih
+                clearRadioError(); 
             }
 
-            // Jika semua validasi lolos, submit form
+     
             if (isValid) {
                 alert('Registrasi berhasil!');
                 form.submit();
@@ -463,27 +462,27 @@
 
         document.getElementById("togglePassword1").addEventListener("click", function () {
             var passwordField = document.getElementById("groupPassword");
-            var type = passwordField.type === "password" ? "text" : "password"; // Toggle tipe password
+            var type = passwordField.type === "password" ? "text" : "password"; 
             passwordField.type = type;
 
             var eyeIcon = this.querySelector("img");
             if (type === "password") {
-                eyeIcon.src = "./assets/eye.png"; // Ganti dengan gambar mata tertutup
+                eyeIcon.src = "./assets/eye.png"; 
             } else {
-                eyeIcon.src = "./assets/eye-open.png"; // Ganti dengan gambar mata terbuka
+                eyeIcon.src = "./assets/eye-open.png"; 
             }
         });
 
         document.getElementById("togglePassword2").addEventListener("click", function () {
             var confirmPasswordField = document.getElementById("confirmPassword");
-            var type = confirmPasswordField.type === "password" ? "text" : "password"; // Toggle tipe password
+            var type = confirmPasswordField.type === "password" ? "text" : "password"; 
             confirmPasswordField.type = type;
 
             var eyeIcon = this.querySelector("img");
             if (type === "password") {
-                eyeIcon.src = "./assets/eye.png"; // Ganti dengan gambar mata tertutup
+                eyeIcon.src = "./assets/eye.png"; 
             } else {
-                eyeIcon.src = "./assets/eye-open.png"; // Ganti dengan gambar mata terbuka
+                eyeIcon.src = "./assets/eye-open.png"; 
             }
         });
     </script>
