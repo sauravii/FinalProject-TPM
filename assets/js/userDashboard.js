@@ -78,7 +78,7 @@ btnLogout.addEventListener("click", () => {
 
 btnConfirmLogout.addEventListener("click", () => {
   localStorage.removeItem("token");
-  window.location.href = "./login.html";
+  window.location.href = "./loginUser.html";
 });
 
 btnCancelLogout.addEventListener("click", () => {
