@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Itim&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+
+    <style>
+                *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body{
+            font-family: "Poppins", serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #0054A5, #003E7A);
+            height: 100vh;
+        }
+
+        .card{
+            background: #FFFFFF;
+            width: 73%;
+            max-width: 1050px;
+            min-width: 1050px;
+            height: 55%;
+            max-height: 575px;
+            display: flex;
+            flex-direction: row;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .logoBNCC{
+            width: 364px;
+            height: 162px;
+            margin: 206px 130px 206px 130px;
+        }
+
+        p{
+            font-size: 10px;
+            color: #666666;
+        }
+
+        label{
+            font-size: 14px;
+            color: #666666;
+        }
+
+        li{
+            color: #666666;
+        }
+
+        .input-box{
+            position: relative;
+            width: 332px;
+            height: 533px;
+            margin: 35px 101px 44px 0px;
+        }
+
+        .form-step {
+            display: none;
+        }
+
+        .form-step.active{
+            display: block;
+        }
+
+        #step-1 {
+            margin-top: 50px;
+        }
+
+        .name-wrapper{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .name-wrapper > input {
+            width: 100%;
+            height: 40px;
+            padding: 8px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            margin-top: 8px;
+            margin-bottom: 11px;
+        }
+
+        .line-wrapper{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .line-wrapper > input {
+            width: 100%;
+            height: 40px;
+            padding: 8px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            margin-top: 8px;
+            margin-bottom: 11px;
+        }
+
+        .email-wrapper{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .email-wrapper > input {
+            width: 100%;
+            height: 40px;
+            padding: 8px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            margin-top: 8px;
+            margin-bottom: 11px;
+        }
+
+        .number-wrapper{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .number-wrapper > input{
+            width: 100%;
+            height: 40px;
+            padding: 8px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            margin-top: 8px;
+            margin-bottom: 11px;
+        }
+
+        .git-wrapper{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .git-wrapper > input {
+            width: 100%;
+            height: 40px;
+            padding: 8px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            margin-top: 8px;
+            margin-bottom: 11px;
+        }
+
+        #nextButton {
+            position: absolute;
+            left: 320px;
+            top: 450px;
+            width: 48px;
+            height: 48px;
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .error-message .email-example{
+            color: #0054A5;
+            text-decoration: underline;
+        }
+
+        .error-message{
+            display: none;
+            position: absolute;
+            top: 100%;
+            font-size: 10px;
+            color: #B20110;
+            margin: -12px 5px 5px 5px;
+            white-space: nowrap;
+        }
+
+        .input-error{
+            border-color: #B20110 !important;
+        }
+
+        .file-input-wrapper.input-error {
+            border-color: #B20110 !important;
+        }
+
+        /* .git-wrapper{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        } */
+
+        /* .git-wrapper > input {
+            width: 100%;
+            height: 40px;
+            padding: 8px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            margin-top: 8px;
+            margin-bottom: 11px;
+        } */
+        #step-2{
+            margin-top: -7px;
+        }
+
+        .place-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .place-wrapper > input {
+            width: 320px;
+            height: 40px;
+            padding: 8px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            margin-top: 8px;
+            margin-bottom: 16px;
+        }
+
+        #birthPlace {
+            height: 39px;
+            appearance: none !important; 
+            -webkit-appearance: none; 
+            -moz-appearance: none; 
+            background-image: url(./assets/down.png);
+            padding-right: 30px;
+            background-repeat: no-repeat;
+            background-position: right center;
+            background-size: 23px; 
+        }
+
+        #birthPlace:hover {
+            cursor: pointer;
+        }
+
+        #birthPlace::-webkit-inner-spin-button,
+        #birthPlace::-webkit-outer-spin-button {
+            appearance: none;
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .date-wrapper{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .date-wrapper > .input-birth-date {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .date-wrapper .input-birth-date select {
+            color: #666666;
+            font-size: 14px;
+            width: 82px;
+            height: 43px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+        }
+
+        .date-wrapper .input-birth-date select:hover{
+            cursor: pointer;
+            color: black;
+        }
+
+        .date-wrapper > .requirement span{
+            color: #B20110;
+        }
+
+        .file-input{
+            display: none;
+        }
+        /* .confirm-wrapper > .input-confirm-wrapper > .toggle-password{
+            position: absolute;
+            top: 50%; 
+            right: 14px; 
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 2;  
+        } */
+        .cv-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-top: 5px;
+            margin-bottom: 12px;
+        }
+
+        .cv-wrapper > .upload-cv-wrapper{
+            display: flex;
+        }
+
+        .cv-wrapper > .upload-cv-wrapper {
+            width: 320px;
+            height: 40px;
+            padding: 8px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            margin-top: 8px;
+            margin-bottom: 5px;
+        }
+
+        .cv-wrapper > .requirement span {
+            color: #B20110;
+        }
+
+        .flazz-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 12px;
+        }
+
+        .flazz-wrapper label {
+            margin-bottom: -3px;
+        }
+
+        .flazz-wrapper > .upload-flazz-wrapper {
+            width: 320px;
+            height: 40px;
+            padding: 8px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            margin-top: 8px;
+            margin-bottom: 5px;
+        }
+
+        .flazz-wrapper > .requirement span {
+            color: #B20110;
+        }
+
+        .id-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin-top: 5px;
+            margin-bottom: 0px;
+        }
+
+        .id-wrapper > .upload-id-wrapper{
+            margin-top: -9px;
+        }
+
+        .id-wrapper > .upload-id-wrapper {
+            width: 320px;
+            height: 40px;
+            padding: 8px 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            border-radius: 6px;
+            margin-top: 8px;
+            margin-bottom: 5px;
+        }
+
+        .id-wrapper > .requirement span {
+            color: #B20110;
+        }
+
+        .upload-button {
+            position: absolute;
+            top: 60%; 
+            right: 12px; 
+            transform: translateY(-50%);
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 1px;
+            margin-top: -5px;
+        }
+        
+        #previousButton {
+            width: 58px;
+            height: 48px;
+            margin: 26px 0px 28px -20px;
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        #register-button {
+            width: 273px;
+            height: 44px;
+            padding: 10px;
+            background-color: #0054A5;
+            color: #FFFFFF;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer
+        }
+
+    </style>
+
+
+</head>
+<body>
+    <div class="body">
+        <div class="card">
+            <img class="logoBNCC" src="./assets/logo.png" alt="LOGO BNCC">
+
+            <div class="input-box">
+                <form class="input-form">
+
+                    <div class="form-step active" id="step-1">
+
+                        <div class="name-wrapper">
+                            <label for="leaderName">Full Name</label>
+                            <input type="text" id="leaderName" name="leaderName" required>
+                        </div>
+        
+                        <div class="line-wrapper">
+                            <label for="lineId">Line ID</label>
+                            <input type="text" id="lineId" name="lineId" required>
+                        </div>
+        
+                        <div class="email-wrapper">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <p class="error-message">Masukkan email yang valid seperti <span class="email-example">user@gmail.com</span></p>
+                        </div>
+        
+                        <div class="number-wrapper">
+                            <label for="whatsappNumber">Whatsapp Number</label>
+                            <input type="tel" id="whatsappNumber" name="whatsappNumber" required>
+                            <p class="error-message">Nomor Whatsapp harus berupa numerik yang valid</p>
+                        </div>
+        
+                        <div class="git-wrapper">
+                            <label for="gitId">Github/Gitlab ID</label>
+                            <input type="text" id="gitId" name="gitId" required>
+                        </div>
+
+                        <button type="button" id="nextButton">
+                            <img src="./assets/right.png" alt="Next">
+                        </button>
+
+                    </div>
+
+                    <div class="form-step " id="step-2">
+
+                        <div class="place-wrapper">
+                            <label for="birthPlace">Birth Place</label>
+                            <input list="cities" name="birthPlace" id="birthPlace" placeholder="City" required>
+                            <datalist id="cities">
+                                <option value="Bandung">
+                                <option value="Batam">
+                                <option value="Denpasar (Bali)">
+                                <option value="Jakarta">
+                                <option value="Malang">
+                                <option value="Makassar">
+                                <option value="Medan">
+                                <option value="Surabaya">
+                                <option value="Semarang">
+                                <option value="Yogyakarta">
+                            </datalist>
+                        </div>
+
+                        <div class="date-wrapper">
+                            <label for="birthDate">Birth Date</label>
+
+                            <div class="input-birth-date">
+                                
+                                <div class="month-input">
+                                    <select name="month" id="month" required>
+                                        <option value="" disabled selected>MM</option>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="date-input">
+                                    <select name="day" id="day" required>
+                                        <option class="placeholder" value="" disabled selected>DD</option>
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>
+                                </div>
+
+                                <div class="year-input">
+                                    <select name="year" id="year" required>
+                                        <option value="" disabled selected>YYYY</option>
+                                        <option value="2001">2001</option>
+                                        <option value="2002">2002</option>
+                                        <option value="2003">2003</option>
+                                        <option value="2004">2004</option>
+                                        <option value="2005">2005</option>
+                                        <option value="2006">2006</option>
+                                        <option value="2007">2007</option>
+                                        <option value="2008">2008</option>
+                                    </select>
+                                </div>
+    
+                                <img src="./assets/calendar.png" alt="calendar">
+                            </div>
+                            
+                            <div class="requirement">
+                                <p><span>*</span>Umur peserta minimal 17 tahun</p>
+                            </div>
+
+                        </div>
+
+                        <div class="cv-wrapper">
+                            <label>Upload CV</label>
+                            
+                            <div class="upload-cv-wrapper file-input-wrapper">
+                                <input type="file" class="file-input" id="uploadCv" name="uploadCv" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <!-- <span class="upload-button" id="upload-button-cv">
+                                    <img src="./assets/upload.png" alt="upload">
+                                </span> -->
+                                <label class="upload-button" for="uploadCv">
+                                    <img src="./assets/upload.png" alt="upload">
+                                </label>
+                            </div>
+
+                            <div class="requirement">
+                                <p><span>*</span>Format file pdf,jpg,jpeg, dan png</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flazz-wrapper">
+                            <label>Upload Flazz Card untuk Binusian</label>
+                            
+                            <div class="upload-flazz-wrapper file-input-wrapper">
+                                <input type="file" class="file-input" id="uploadFlazz" name="uploadFlazz" accept=".pdf,.jpg,.jpeg,.png">
+                                <label class="upload-button" for="uploadFlazz">
+                                    <img src="./assets/upload.png" alt="upload">
+                                </label>
+                            </div>
+
+                            <div class="requirement">
+                                <p><span>*</span>Format file pdf,jpg,jpeg, dan png</p>
+                            </div>
+                        </div>
+
+                        <div class="id-wrapper">
+                            <label>Upload ID Card untuk Non-binusian</label>
+                            
+                            <div class="upload-id-wrapper file-input-wrapper">
+                                <input type="file" class="file-input" id="uploadId" name="uploadId" accept=".pdf,.jpg,.jpeg,.png">
+                                <label class="upload-button" for="uploadId">
+                                    <img src="./assets/upload.png" alt="upload">
+                                </label>
+                            </div>
+
+                            <div class="requirement">
+                                <p><span>*</span>Format file pdf,jpg,jpeg, dan png</p>
+                            </div>
+                        </div>
+
+                        <div class="buttons">
+                            <button type="button" id="previousButton">
+                                <img src="./assets/left.png" alt="Previous">
+                            </button>
+    
+                            <button  id="register-button" type="submit">Register</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    // Fungsi untuk validasi pada step-1
+    function validateStep1() {
+        const inputs = [
+            { id: "leaderName", message: "Nama tidak boleh kosong" },
+            { id: "lineId", message: "Line ID tidak boleh kosong" },
+            { 
+                id: "email", 
+                message: "Masukkan email yang valid seperti user@gmail.com",
+                validate: (value) => value.includes("@gmail.com")
+            },
+            { 
+                id: "whatsappNumber", 
+                message: "Nomor Whatsapp harus berupa numerik yang valid",
+                validate: (value) => /^\d+$/.test(value)
+            },
+            { id: "gitId", message: "Github/Gitlab ID tidak boleh kosong" },
+        ];
+
+        let isValid = true;
+
+        inputs.forEach(({ id, message, validate }) => {
+            const input = document.getElementById(id);
+            const parent = input ? input.parentElement : null;
+
+            // Hapus pesan error sebelumnya
+            const errorMessage = parent ? parent.querySelector(".error-message") : null;
+            if (errorMessage) errorMessage.style.display = "none";
+
+            // Validasi input
+            if (input && !input.value.trim() && !validate) {
+                isValid = false;
+                input.classList.add("input-error");
+
+                // Tambahkan pesan error
+                const error = parent.querySelector(".error-message") || document.createElement("p");
+                error.className = "error-message";
+                error.innerText = message;
+                error.style.display = "block";
+                parent.appendChild(error);
+            } else if (validate && !validate(input.value.trim())) {
+                isValid = false;
+                input.classList.add("input-error");
+
+                // Tambahkan pesan error
+                const error = parent.querySelector(".error-message") || document.createElement("p");
+                error.className = "error-message";
+                error.innerText = message;
+                error.style.display = "block";
+                parent.appendChild(error);
+            } else {
+                if (input) input.classList.remove("input-error");
+            }
+        });
+
+        return isValid;
+    }
+
+    function validateStep2() {
+        let isValid = true;
+        
+        const birthPlace = document.getElementById("birthPlace");
+        if (!birthPlace.value.trim()) {
+            isValid = false;
+            birthPlace.classList.add("input-error");
+        } else {
+            birthPlace.classList.remove("input-error");
+        }
+
+        const month = document.getElementById("month");
+        const day = document.getElementById("day");
+        const year = document.getElementById("year");
+
+        [month, day, year].forEach((input) => {
+            if (!input.value.trim()) {
+                isValid = false;
+                input.classList.add("input-error");
+            } else {
+                input.classList.remove("input-error");
+            }
+        });
+
+        const cvInput = document.getElementById("uploadCv");
+        const flazzInput = document.getElementById("uploadFlazz");
+        const idInput = document.getElementById("uploadId");
+
+        const fileInputs = [
+            { id: "uploadCv", message: "CV belum diunggah" },
+            { id: "uploadFlazz", message: "Flazz Card belum diunggah" },
+            { id: "uploadId", message: "ID Card belum diunggah" },
+        ];
+
+        const cvWrapper = cvInput.closest(".upload-cv-wrapper");
+        if (cvInput.files.length === 0) {
+            isValid = false;
+            cvWrapper.classList.add("input-error");
+        } else {
+            cvWrapper.classList.remove("input-error");
+        }
+
+        const flazzWrapper = flazzInput.closest(".upload-flazz-wrapper");
+        const idWrapper = idInput.closest(".upload-id-wrapper");
+        
+        if (flazzInput.files.length === 0 && idInput.files.length === 0) {
+            isValid = false;
+            flazzWrapper.classList.add("input-error");
+            idWrapper.classList.add("input-error");
+        } else {
+            flazzWrapper.classList.remove("input-error");
+            idWrapper.classList.remove("input-error");
+        }
+
+        return isValid;
+    }
+
+    function goToStep(stepNumber) {
+        const step1 = document.getElementById("step-1");
+        const step2 = document.getElementById("step-2");
+
+        if (stepNumber === 1) {
+            step1.classList.add("active");
+            step2.classList.remove("active");
+        } else if (stepNumber === 2) {
+            step1.classList.remove("active");
+            step2.classList.add("active");
+        }
+    }
+
+    document.getElementById("nextButton").addEventListener("click", function () {
+        if (validateStep1()) {
+            goToStep(2); 
+        } 
+    });
+
+    document.getElementById("previousButton").addEventListener("click", function () {
+        goToStep(1); 
+    });
+
+    document.getElementById("register-button").addEventListener("click", function (e) {
+    if (!validateStep2()) {
+        e.preventDefault(); // Mencegah pengiriman formulir
+        goToStep(2); // Tetap berada di step-2
+    } else {
+        alert("Registrasi berhasil!");
+    }
+    }); 
+
+    document.querySelectorAll('input[type="file"]').forEach((fileInput) => {
+        fileInput.addEventListener("change", function () {
+            const fileName = this.files[0]?.name || "Tidak ada file yang dipilih";
+            const fileLabel = this.nextElementSibling; 
+            if (fileLabel) {
+                fileLabel.textContent = fileName;
+                fileLabel.style.color = "#0054A5";      
+                fileLabel.style.marginRight = "45px";   
+            }
+        });
+    });
+</script>
+
+</html>
